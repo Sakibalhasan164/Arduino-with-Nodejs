@@ -4,17 +4,16 @@ const express=require("express")
 const app=express();
 //path for the express app
 // const path=require("path")
-
 //socket io stuff
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const { Socket } = require('dgram');
 const io = new Server(server);
- 
+
 
 const parser = new parsers.Readline({
-  delimiter: '\r\n'
+    delimiter: '\r\n'
 });
 var port = new SerialPort('COM3',{ 
     baudRate: 9600,
@@ -22,13 +21,14 @@ var port = new SerialPort('COM3',{
     parity: 'none',
     stopBits: 1,
     flowControl: false
-  });
-  
-  port.pipe(parser);
+});
 
+port.pipe(parser);
+
+app.use(express.static("public"))
 
 app.get("/",(req,res)=>{
-res.sendFile(__dirname + '/index.html')
+res.sendFile(__dirname , 'public/index.html')
 })
 //if there is a connection available
 io.on("connection",(Socket)=>{

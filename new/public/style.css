@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.on{
+padding: 10px 20px;
+background-color: rgb(77, 170, 15);
+/* border: 1px solid black; */
+color: white;
+border-radius: 6px;
+cursor: pointer;
+transition: .5s;
+margin-right: 10px;
+border: none;
+}
+.off{
+padding: 10px 20px;
+background-color: red;
+border: none;
+/* border: 1px solid black; */
+cursor: pointer;
+color: white;
+border-radius: 6px;
+transition: .5s;
+}
+.off:hover{
+/* background-color: rgb(99, 62, 62);
+ */
+ padding: 12px 25px ;
+}
+.on:hover{
+/* background-color: rgb(99, 62, 62);
+ */
+ padding: 12px 25px ;
+}
+.div{
+text-align: center;
+padding: 10px;
+/* margin:0 auto; */
+/* width: 100%;
+padding: 10px; */
+/* height: 100%; */
+}
+.led-wraper{
+text-align: center;
+background-color: red;
+width: 100%;
+padding: 30px;
+}
+
+
+.led{
+width: 30px;
+height: 30px;
+background-color: red;
+border-radius: 50%;
+margin: auto;
+/* text-align: center; */
+}

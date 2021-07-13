@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NODE JS WITH ARDUINO</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="div">
+     <h1>ARDUINO!!!</h1>
+    <button id="ON" class="on">ON</button>
+    <button id="OFF" class="off">OFF</button>
+
+</div>
+
+<div class="led-Wraper">
+<div class="led" id="led">
+    <!-- this div represent the state of the led -->
+</div>       
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+</body>
+<script>
+//socket io
+let socket=io();
+const onBtn=document.getElementById("ON");
+const offBtn=document.getElementById("OFF")
+const led=document.getElementById("led")
+
+onBtn.addEventListener("click",(e)=>{
+    // console.log("turn the light ON");
+    led.style.backgroundColor="green"
+socket.emit("LIGHT-ON","1")
+
+})
+offBtn.addEventListener("click",()=>{
+    // console.log("turn the light OFF");
+    socket.emit("LIGHT-OFF","0")
+    led.style.backgroundColor="red"
+})
+
+</script>
+</html>
