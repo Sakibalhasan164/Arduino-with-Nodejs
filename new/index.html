@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NODE JS WITH ARDUINO</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+.on{
+    padding: 10px 20px;
+    background-color: rgb(77, 170, 15);
+    /* border: 1px solid black; */
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .5s;
+    margin-right: 10px;
+    border: none;
+}
+.off{
+    padding: 10px 20px;
+    background-color: red;
+    border: none;
+    /* border: 1px solid black; */
+    cursor: pointer;
+    color: white;
+    border-radius: 6px;
+    transition: .5s;
+}
+.off:hover{
+    /* background-color: rgb(99, 62, 62);
+     */
+     padding: 12px 25px ;
+}
+.on:hover{
+    /* background-color: rgb(99, 62, 62);
+     */
+     padding: 12px 25px ;
+}
+.div{
+    text-align: center;
+    padding: 10px;
+    /* margin:0 auto; */
+    /* width: 100%;
+    padding: 10px; */
+    /* height: 100%; */
+}
+.led-wraper{
+    text-align: center;
+    background-color: red;
+    width: 100%;
+    padding: 30px;
+}
+
+
+.led{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    margin: auto;
+    /* text-align: center; */
+}
+
+</style>
+<body>
+    <div class="div">
+     <h1>ARDUINO!!!</h1>
+    <button id="ON" class="on">ON</button>
+    <button id="OFF" class="off">OFF</button>
+
+</div>
+
+<div class="led-Wraper">
+<div class="led" id="led">
+    <!-- this div represent the state of the led -->
+</div>       
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+</body>
+<script>
+//socket io
+let socket=io();
+const onBtn=document.getElementById("ON");
+const offBtn=document.getElementById("OFF")
+const led=document.getElementById("led")
+
+onBtn.addEventListener("click",(e)=>{
+    // console.log("turn the light ON");
+    led.style.backgroundColor="green"
+socket.emit("LIGHT-ON","1")
+
+})
+offBtn.addEventListener("click",()=>{
+    // console.log("turn the light OFF");
+    socket.emit("LIGHT-OFF","0")
+    led.style.backgroundColor="red"
+})
+
+</script>
+</html>
