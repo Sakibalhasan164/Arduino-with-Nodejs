@@ -58,3 +58,9 @@ border-radius: 50%;
 margin: auto;
 /* text-align: center; */
 }
+
+.canvas{
+    /* height:300px; */
+    /* width: 300px; */
+    background-color: pink;
+}
